@@ -1706,6 +1706,55 @@ qwen2vl_series = {
         system_prompt=("You FIRST think about the reasoning process as an internal monologue and then provide the final answer.\nThe reasoning process MUST BE enclosed within <think> </think> tags. The final answer MUST BE enclosed within <answer> </answer> tags."
         ),
     ),
+    "Qwen2.5-VL-7B-qinstruct_ORI": partial(
+        Qwen2VLChat,
+        model_path="/fs/nexus-projects/wilddiffusion/vlm/llama_factory/qwen_task/qwen25_qinstruct_ori/",
+        min_pixels=1280 * 28 * 28,
+        max_pixels=16384 * 28 * 28,
+        use_custom_prompt=False,
+    ),
+    "Qwen2.5-VL-7B-qinstruct_QAONLY": partial(
+        Qwen2VLChat,
+        model_path="/fs/nexus-projects/wilddiffusion/vlm/llama_factory/qwen_task/qwen25_qinstruct_qaonly/",
+        min_pixels=1280 * 28 * 28,
+        max_pixels=16384 * 28 * 28,
+        use_custom_prompt=False,
+    ),
+    "Qwen2.5-VL-7B-qinstruct_NEW": partial(
+        Qwen2VLChat,
+        model_path="/fs/nexus-projects/wilddiffusion/vlm/llama_factory/qwen_task/qwen25_qinstruct_new",
+        min_pixels=1280 * 28 * 28,
+        max_pixels=16384 * 28 * 28,
+        use_custom_prompt=False,
+    ),
+    "Qwen2.5-VL-7B-qinstruct_NEW_qs": partial(
+        Qwen2VLChat,
+        model_path="/fs/nexus-projects/wilddiffusion/vlm/llama_factory/qwen_task/qwen25_qinstruct_new_qs",
+        min_pixels=1280 * 28 * 28,
+        max_pixels=16384 * 28 * 28,
+        use_custom_prompt=False,
+    ),
+    "Qwen2.5-VL-7B-qinstruct_NEW_qa": partial(
+        Qwen2VLChat,
+        model_path="/fs/nexus-projects/wilddiffusion/vlm/llama_factory/qwen_task/qwen25_qinstruct_new_qa",
+        min_pixels=1280 * 28 * 28,
+        max_pixels=16384 * 28 * 28,
+        use_custom_prompt=False,
+    ),
+    "Qwen2.5-VL-7B-qinstruct_NEW_qapair": partial(
+        Qwen2VLChat,
+        model_path="/fs/nexus-projects/wilddiffusion/vlm/llama_factory/qwen_task/qwen25_qinstruct_new_qapair",
+        min_pixels=1280 * 28 * 28,
+        max_pixels=16384 * 28 * 28,
+        use_custom_prompt=False,
+    ),
+    "Qwen2.5-VL-7B-qinstruct_ORI_qs": partial(
+        Qwen2VLChat,
+        model_path="/fs/nexus-projects/wilddiffusion/vlm/llama_factory/qwen_task/qwen25_qinstruct_ori_qs",
+        min_pixels=1280 * 28 * 28,
+        max_pixels=16384 * 28 * 28,
+        use_custom_prompt=False,
+    ),
 }
 
 slime_series = {

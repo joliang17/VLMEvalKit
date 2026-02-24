@@ -348,7 +348,6 @@ def main():
                             use_vllm=args.use_vllm)
 
                 # Set the judge kwargs first before evaluation or dumping
-
                 judge_kwargs = {
                     'nproc': args.api_nproc,
                     'verbose': args.verbose,
