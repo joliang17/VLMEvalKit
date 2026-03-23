@@ -62,6 +62,7 @@ class Qwen3VLChat(Qwen3VLPromptMixin, BaseModel):
         use_custom_prompt: bool = True,
         system_prompt: str | None = None,
         post_process: bool = False,
+        do_sample: bool = True,
         verbose: bool = False,
         use_audio_in_video: bool = True,
         **kwargs,
@@ -76,6 +77,7 @@ class Qwen3VLChat(Qwen3VLPromptMixin, BaseModel):
         self.repetition_penalty = repetition_penalty
         self.presence_penalty = presence_penalty
         self.temperature = temperature
+        self.do_sample = do_sample
         if self.total_pixels and self.total_pixels > 24576 * 32 * 32:
             print('The total number of video tokens might too large, resulting in an overly long input sequence.')
         self.generate_kwargs = dict(
@@ -84,6 +86,7 @@ class Qwen3VLChat(Qwen3VLPromptMixin, BaseModel):
             top_k=top_k,
             temperature=temperature,
             repetition_penalty=repetition_penalty,
+            do_sample=do_sample,
         )
         self.system_prompt = system_prompt
         self.verbose = verbose

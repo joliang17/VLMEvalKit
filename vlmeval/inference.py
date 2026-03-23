@@ -43,6 +43,7 @@ def infer_data_api(model, work_dir, model_name, dataset, index_set=None, api_npr
             struct = model.build_prompt(item, dataset=dataset_name)
         else:
             struct = dataset.build_prompt(item)
+        
         structs.append(struct)
 
     out_file = f'{work_dir}/{model_name}_{dataset_name}_supp.pkl'
@@ -158,6 +159,14 @@ def infer_data(model, model_name, work_dir, dataset, out_file, verbose=False, ap
         else:
             struct = dataset.build_prompt(data.iloc[i])
 
+        # ADDED: add vqa instruction
+        # try:
+        #     if len(struct) == 2:
+        #         new_instruct = 'Task: VQA.\nBased on the visual content, please answer this question.\n' + struct[1]['value']
+        #         struct= new_instruct
+        # except:
+        #     continue
+        
         # If `SKIP_ERR` flag is set, the model will skip the generation if error is encountered
         if os.environ.get('SKIP_ERR', False) == '1':
             FAIL_MSG = 'Failed to obtain answer'
