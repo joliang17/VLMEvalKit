@@ -1638,6 +1638,19 @@ qwen3vl_series = {
         top_p=0.8,
         top_k=20
     ),
+    "Qwen3-VL-4B-qinstruct_mme_mix_qa_aq_iqa_8k_052525_v2": partial(
+        Qwen3VLChat,
+        model_path="/fs/nexus-projects/wilddiffusion/vlm/llama_factory/qwen_task/qwen3vl_4B_qinstruct_mme_mix_qa_aq_iqa_8k_052525_v2_merged",
+        use_custom_prompt=False,
+        use_vllm=False,
+        do_sample=False,
+        temperature=0.7,
+        max_new_tokens=4096,
+        repetition_penalty=1.0,
+        presence_penalty=1.5,
+        top_p=0.8,
+        top_k=20
+    ),
     "Qwen3-VL-4B-qinstruct_ori_mix_qa_aq_iqa_8k_052525_v2": partial(
         Qwen3VLChat,
         model_path="/fs/nexus-projects/wilddiffusion/vlm/llama_factory/qwen_task/qwen3vl_4B_qinstruct_ori_mix_qa_aq_iqa_8k_052525_v2_merged",
