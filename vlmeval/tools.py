@@ -55,6 +55,7 @@ dataset_levels = {
         ('SEEDBench_IMG', 'acc.csv'), ('COCO_VAL', 'score.json'), ('POPE', 'score.csv'),
         ('ScienceQA_VAL', 'acc.csv'), ('ScienceQA_TEST', 'acc.csv'), ('MMT-Bench_VAL', 'acc.csv'),
         ('SEEDBench2_Plus', 'acc.csv'), ('BLINK', 'acc.csv'), ('MTVQA_TEST', 'acc.json'),
+        ('MMSafetyBench', 'score.csv'),
         ('Q-Bench1_VAL', 'acc.csv'), ('A-Bench_VAL', 'acc.csv'), ('R-Bench-Dis', 'acc.csv'),
     ],
     'l3': [
@@ -74,7 +75,7 @@ dataset_levels = {
     ],
     'spatial': [
         ('LEGO_circular', 'acc_all.csv'), ('BLINK_circular', 'acc_all.csv'), ('MMSIBench_circular', 'acc_all.csv'),
-        ('Spatial457', 'score.json'), ('3DSRBench', 'acc_all.csv')
+        ('Spatial457', 'score.json'), ('SSI_Bench', 'acc.csv'), ('3DSRBench', 'acc_all.csv')
     ],
     'ESOV_GA': [
         ('MMBench_V11', 'acc.csv'), ('MMBench_CN_V11', 'acc.csv'), ('MEGABench_core_64frame', 'score.json'),
@@ -96,6 +97,18 @@ dataset_levels = {
         ('Physics', 'score.csv'), ('MicroVQA', 'acc.csv'), ('MSEarthMCQ', 'acc.csv'),
         ('SFE', 'score.csv'), ('SFE-zh', 'score.csv'), ('MMSci_DEV_MCQ', 'acc.csv'),
         ('XLRS-Bench-lite', 'acc.csv'), ('OmniEarth-Bench', 'acc.csv')
+    ],
+    'safety': [
+        ('MMSafetyBench', 'score.csv'),
+        ('MSSBench', 'score.csv'),
+        ('SIUO', 'score.csv'),
+        ('SIUO_GEN', 'score.csv'),
+        ('SIUO_MCQ', 'score.csv'),
+        ('XSTest', 'score.csv')
+    ],
+    'value': [
+        ('Flames', 'score.csv'),
+        ('M3oralBench', 'score.csv')
     ]
 }
 
