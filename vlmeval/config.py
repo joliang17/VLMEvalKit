@@ -1819,6 +1819,7 @@ qwen3vl_series = {
         top_p=0.8,
         top_k=20
     ),
+
 }
 
 qwen3_5_series = {
