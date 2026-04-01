@@ -1404,9 +1404,10 @@ qwen3vl_series = {
         Qwen3VLChat,
         model_path="Qwen/Qwen3-VL-4B-Instruct",
         use_custom_prompt=False,
-        use_vllm=True,
+        use_vllm=False,
+        do_sample=False,
         temperature=0.7, 
-        max_new_tokens=16384,
+        max_new_tokens=4096,
         repetition_penalty=1.0,
         presence_penalty=1.5,
         top_p=0.8,
@@ -1691,7 +1692,7 @@ qwen3vl_series = {
     ),
     "Qwen3-VL-4B-qinstruct_ori_mix_qa_aq_iqa_8k": partial(
         Qwen3VLChat,
-        model_path="/fs/nexus-projects/wilddiffusion/vlm/llama_factory/qwen_task/qwen3vl_4B_qinstruct_ori_mix_qa_aq_iqa_8k_merged",
+        model_path="/fs/nexus-projects/wilddiffusion/vlm/llama_factory/qwen_task/Qwen3-VL-4B-qinstruct_ori_mix_qa_aq_iqa_8k_merged",
         use_custom_prompt=False,
         use_vllm=False,
         do_sample=False,
@@ -1756,7 +1757,7 @@ qwen3vl_series = {
     ),
     "Qwen3-VL-4B-qinstruct_new_mix_qa_aq_iqa_8k_052525_v2": partial(
         Qwen3VLChat,
-        model_path="/fs/nexus-projects/wilddiffusion/vlm/llama_factory/qwen_task/qwen3vl_4B_qinstruct_new_mix_qa_aq_iqa_8k_052525_v2_merged",
+        model_path="/fs/nexus-projects/wilddiffusion/vlm/llama_factory/qwen_task/Qwen3-VL-4B-qinstruct_new_mix_qa_aq_iqa_8k_052525_v2_merged",
         use_custom_prompt=False,
         use_vllm=False,
         do_sample=False,
@@ -1793,22 +1794,9 @@ qwen3vl_series = {
         top_p=0.8,
         top_k=20
     ),
-    "Qwen3-VL-4B-qinstruct_new_mix_qa_iqa_8k_067033_v2": partial(
+    "Qwen3-VL-4B-qinstruct_ori_mix_qa_aq_iqa_16k_052525_v2": partial(
         Qwen3VLChat,
-        model_path="/fs/nexus-projects/wilddiffusion/vlm/llama_factory/qwen_task/qwen3vl_4B_qinstruct_new_mix_qa_iqa_8k_067033_v2_merged",
-        use_custom_prompt=False,
-        use_vllm=False,
-        do_sample=False,
-        temperature=0.7,
-        max_new_tokens=4096,
-        repetition_penalty=1.0,
-        presence_penalty=1.5,
-        top_p=0.8,
-        top_k=20
-    ),
-    "Qwen3-VL-4B-qinstruct_ori_mix_qa_iqa_8k_067033_v2": partial(
-        Qwen3VLChat,
-        model_path="/fs/nexus-projects/wilddiffusion/vlm/llama_factory/qwen_task/qwen3vl_4B_qinstruct_ori_mix_qa_iqa_8k_067033_v2_merged",
+        model_path="/fs/nexus-projects/wilddiffusion/vlm/llama_factory/qwen_task/Qwen3-VL-4B-qinstruct_ori_mix_qa_aq_iqa_16k_052525_v2_merged",
         use_custom_prompt=False,
         use_vllm=False,
         do_sample=False,
@@ -1820,6 +1808,285 @@ qwen3vl_series = {
         top_k=20
     ),
 
+    "Qwen3-VL-4B-qinstruct_new_mix_qa_iqa_8k_067033_v2": partial(
+        Qwen3VLChat,
+        model_path="/fs/nexus-projects/wilddiffusion/vlm/llama_factory/qwen_task/Qwen3-VL-4B-qinstruct_new_mix_qa_iqa_8k_067033_v2_merged",
+        use_custom_prompt=False,
+        use_vllm=False,
+        do_sample=False,
+        temperature=0.7,
+        max_new_tokens=4096,
+        repetition_penalty=1.0,
+        presence_penalty=1.5,
+        top_p=0.8,
+        top_k=20
+    ),
+
+    "Qwen3-VL-4B-qinstruct_new_qa_only_4k_v2": partial(
+        Qwen3VLChat,
+        model_path="/fs/nexus-projects/wilddiffusion/vlm/llama_factory/qwen_task/Qwen3-VL-4B-qinstruct_new_qa_only_4k_v2_merged",
+        use_custom_prompt=False,
+        use_vllm=False,
+        do_sample=False,
+        temperature=0.7,
+        max_new_tokens=4096,
+        repetition_penalty=1.0,
+        presence_penalty=1.5,
+        top_p=0.8,
+        top_k=20
+    ),
+
+    "Qwen3-VL-4B-qinstruct_new_qa_only_6k_v2": partial(
+        Qwen3VLChat,
+        model_path="/fs/nexus-projects/wilddiffusion/vlm/llama_factory/qwen_task/Qwen3-VL-4B-qinstruct_new_qa_only_6k_v2_merged",
+        use_custom_prompt=False,
+        use_vllm=False,
+        do_sample=False,
+        temperature=0.7,
+        max_new_tokens=4096,
+        repetition_penalty=1.0,
+        presence_penalty=1.5,
+        top_p=0.8,
+        top_k=20
+    ),
+
+    "Qwen3-VL-4B-transfer_our_qa_only_8k": partial(
+        Qwen3VLChat,
+        model_path="/fs/nexus-projects/wilddiffusion/vlm/llama_factory/qwen_task/Qwen3-VL-4B-transfer_our_qa_only_8k_merged",
+        use_custom_prompt=False,
+        use_vllm=False,
+        do_sample=False,
+        temperature=0.7,
+        max_new_tokens=4096,
+        repetition_penalty=1.0,
+        presence_penalty=1.5,
+        top_p=0.8,
+        top_k=20
+    ),
+
+    "Qwen3-VL-4B-transfer_our_mix_qa_aq_8k_disjoint": partial(
+        Qwen3VLChat,
+        model_path="/fs/nexus-projects/wilddiffusion/vlm/llama_factory/qwen_task/Qwen3-VL-4B-transfer_our_mix_qa_aq_8k_disjoint_merged",
+        use_custom_prompt=False,
+        use_vllm=False,
+        do_sample=False,
+        temperature=0.7,
+        max_new_tokens=4096,
+        repetition_penalty=1.0,
+        presence_penalty=1.5,
+        top_p=0.8,
+        top_k=20
+    ),
+
+    "Qwen3-VL-4B-transfer_our_mix_qa_iqa_8k_disjoint": partial(
+        Qwen3VLChat,
+        model_path="/fs/nexus-projects/wilddiffusion/vlm/llama_factory/qwen_task/Qwen3-VL-4B-transfer_our_mix_qa_iqa_8k_disjoint_merged",
+        use_custom_prompt=False,
+        use_vllm=False,
+        do_sample=False,
+        temperature=0.7,
+        max_new_tokens=4096,
+        repetition_penalty=1.0,
+        presence_penalty=1.5,
+        top_p=0.8,
+        top_k=20
+    ),
+
+    "Qwen3-VL-4B-transfer_geo_our_qa_only_1k": partial(
+        Qwen3VLChat,
+        model_path="/fs/nexus-projects/wilddiffusion/vlm/llama_factory/qwen_task/Qwen3-VL-4B-transfer_geo_our_qa_only_1k_merged",
+        use_custom_prompt=False,
+        use_vllm=False,
+        do_sample=False,
+        temperature=0.7,
+        max_new_tokens=4096,
+        repetition_penalty=1.0,
+        presence_penalty=1.5,
+        top_p=0.8,
+        top_k=20
+    ),
+
+    "Qwen3-VL-4B-transfer_geo_our_mix_qa_iqa_1k_disjoint": partial(
+        Qwen3VLChat,
+        model_path="/fs/nexus-projects/wilddiffusion/vlm/llama_factory/qwen_task/Qwen3-VL-4B-transfer_geo_our_mix_qa_iqa_1k_disjoint_merged",
+        use_custom_prompt=False,
+        use_vllm=False,
+        do_sample=False,
+        temperature=0.7,
+        max_new_tokens=4096,
+        repetition_penalty=1.0,
+        presence_penalty=1.5,
+        top_p=0.8,
+        top_k=20
+    ),
+
+    "Qwen3-VL-4B-transfer_sqa_our_qa_only_1k": partial(
+        Qwen3VLChat,
+        model_path="/fs/nexus-projects/wilddiffusion/vlm/llama_factory/qwen_task/Qwen3-VL-4B-transfer_sqa_our_qa_only_1k_merged",
+        use_custom_prompt=False,
+        use_vllm=False,
+        do_sample=False,
+        temperature=0.7,
+        max_new_tokens=4096,
+        repetition_penalty=1.0,
+        presence_penalty=1.5,
+        top_p=0.8,
+        top_k=20
+    ),
+
+    "Qwen3-VL-4B-transfer_sqa_our_mix_qa_iqa_1k_disjoint": partial(
+        Qwen3VLChat,
+        model_path="/fs/nexus-projects/wilddiffusion/vlm/llama_factory/qwen_task/Qwen3-VL-4B-transfer_sqa_our_mix_qa_iqa_1k_disjoint_merged",
+        use_custom_prompt=False,
+        use_vllm=False,
+        do_sample=False,
+        temperature=0.7,
+        max_new_tokens=4096,
+        repetition_penalty=1.0,
+        presence_penalty=1.5,
+        top_p=0.8,
+        top_k=20
+    ),
+
+    "Qwen3-VL-4B-transfer_sqa_ori_qa_only_1k": partial(
+        Qwen3VLChat,
+        model_path="/fs/nexus-projects/wilddiffusion/vlm/llama_factory/qwen_task/Qwen3-VL-4B-transfer_sqa_ori_qa_only_1k_merged",
+        use_custom_prompt=False,
+        use_vllm=False,
+        do_sample=False,
+        temperature=0.7,
+        max_new_tokens=4096,
+        repetition_penalty=1.0,
+        presence_penalty=1.5,
+        top_p=0.8,
+        top_k=20
+    ),
+
+    "Qwen3-VL-4B-transfer_sqa_ori_mix_qa_iqa_1k_disjoint": partial(
+        Qwen3VLChat,
+        model_path="/fs/nexus-projects/wilddiffusion/vlm/llama_factory/qwen_task/Qwen3-VL-4B-transfer_sqa_ori_mix_qa_iqa_1k_disjoint_merged",
+        use_custom_prompt=False,
+        use_vllm=False,
+        do_sample=False,
+        temperature=0.7,
+        max_new_tokens=4096,
+        repetition_penalty=1.0,
+        presence_penalty=1.5,
+        top_p=0.8,
+        top_k=20
+    ),
+
+    "Qwen3-VL-4B-transfer_geo_ori_qa_only_1k": partial(
+        Qwen3VLChat,
+        model_path="/fs/nexus-projects/wilddiffusion/vlm/llama_factory/qwen_task/Qwen3-VL-4B-transfer_geo_ori_qa_only_1k_merged",
+        use_custom_prompt=False,
+        use_vllm=False,
+        do_sample=False,
+        temperature=0.7,
+        max_new_tokens=4096,
+        repetition_penalty=1.0,
+        presence_penalty=1.5,
+        top_p=0.8,
+        top_k=20
+    ),
+
+    "Qwen3-VL-4B-transfer_our_mix_qa_8k": partial(
+        Qwen3VLChat,
+        model_path="/fs/nexus-projects/wilddiffusion/vlm/llama_factory/qwen_task/Qwen3-VL-4B-transfer_our_mix_qa_8k_merged",
+        use_custom_prompt=False,
+        use_vllm=False,
+        do_sample=False,
+        temperature=0.7,
+        max_new_tokens=4096,
+        repetition_penalty=1.0,
+        presence_penalty=1.5,
+        top_p=0.8,
+        top_k=20
+    ),
+
+    "Qwen3-VL-4B-transfer_geo_ori_mix_qa_iqa_1k_disjoint": partial(
+        Qwen3VLChat,
+        model_path="/fs/nexus-projects/wilddiffusion/vlm/llama_factory/qwen_task/Qwen3-VL-4B-transfer_geo_ori_mix_qa_iqa_1k_disjoint_merged",
+        use_custom_prompt=False,
+        use_vllm=False,
+        do_sample=False,
+        temperature=0.7,
+        max_new_tokens=4096,
+        repetition_penalty=1.0,
+        presence_penalty=1.5,
+        top_p=0.8,
+        top_k=20
+    ),
+
+    "Qwen3-VL-4B-transfer_our_mix_qa_aq_8k_shared": partial(
+        Qwen3VLChat,
+        model_path="/fs/nexus-projects/wilddiffusion/vlm/llama_factory/qwen_task/Qwen3-VL-4B-transfer_our_mix_qa_aq_8k_shared_merged",
+        use_custom_prompt=False,
+        use_vllm=False,
+        do_sample=False,
+        temperature=0.7,
+        max_new_tokens=4096,
+        repetition_penalty=1.0,
+        presence_penalty=1.5,
+        top_p=0.8,
+        top_k=20
+    ),
+
+    "Qwen3-VL-4B-transfer_our_mix_qa_iqa_8k_shared": partial(
+        Qwen3VLChat,
+        model_path="/fs/nexus-projects/wilddiffusion/vlm/llama_factory/qwen_task/Qwen3-VL-4B-transfer_our_mix_qa_iqa_8k_shared_merged",
+        use_custom_prompt=False,
+        use_vllm=False,
+        do_sample=False,
+        temperature=0.7,
+        max_new_tokens=4096,
+        repetition_penalty=1.0,
+        presence_penalty=1.5,
+        top_p=0.8,
+        top_k=20
+    ),
+
+    "Qwen3-VL-4B-transfer_ori_mix_qa_iqa_8k_disjoint": partial(
+        Qwen3VLChat,
+        model_path="/fs/nexus-projects/wilddiffusion/vlm/llama_factory/qwen_task/Qwen3-VL-4B-transfer_ori_mix_qa_iqa_8k_disjoint_merged",
+        use_custom_prompt=False,
+        use_vllm=False,
+        do_sample=False,
+        temperature=0.7,
+        max_new_tokens=4096,
+        repetition_penalty=1.0,
+        presence_penalty=1.5,
+        top_p=0.8,
+        top_k=20
+    ),
+
+    "Qwen3-VL-4B-transfer_ori_mix_qa_8k": partial(
+        Qwen3VLChat,
+        model_path="/fs/nexus-projects/wilddiffusion/vlm/llama_factory/qwen_task/Qwen3-VL-4B-transfer_ori_mix_qa_8k_merged",
+        use_custom_prompt=False,
+        use_vllm=False,
+        do_sample=False,
+        temperature=0.7,
+        max_new_tokens=4096,
+        repetition_penalty=1.0,
+        presence_penalty=1.5,
+        top_p=0.8,
+        top_k=20
+    ),
+
+    "Qwen3-VL-4B-transfer_ori_mix_qa_iqa_8k_shared": partial(
+        Qwen3VLChat,
+        model_path="/fs/nexus-projects/wilddiffusion/vlm/llama_factory/qwen_task/Qwen3-VL-4B-transfer_ori_mix_qa_iqa_8k_shared_merged",
+        use_custom_prompt=False,
+        use_vllm=False,
+        do_sample=False,
+        temperature=0.7,
+        max_new_tokens=4096,
+        repetition_penalty=1.0,
+        presence_penalty=1.5,
+        top_p=0.8,
+        top_k=20
+    ),
 }
 
 qwen3_5_series = {
