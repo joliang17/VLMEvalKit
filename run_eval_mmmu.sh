@@ -1,9 +1,9 @@
 #!/bin/bash
 #SBATCH --array=0-0
-#SBATCH --job-name=new_eval
-#SBATCH --output=log/new_eval_%A_%a.log
-#SBATCH --error=log/new_eval_%A_%a.log
-#SBATCH --time=24:00:00
+#SBATCH --job-name=mmmu_eval
+#SBATCH --output=log/mmmu_eval_%A_%a.log
+#SBATCH --error=log/mmmu_eval_%A_%a.log
+#SBATCH --time=48:00:00
 #SBATCH --account=scavenger 
 #SBATCH --partition=scavenger
 #SBATCH --gres=gpu:rtxa5000:1
@@ -86,8 +86,8 @@ MODELS=(
     # "Qwen3-VL-4B-qinstruct_mme_mix_qa_aq_iqa_8k_052525_v2"
 
     # "Qwen3-VL-4B-qinstruct_ori_mix_qa_aq_iqa_8k"
-    # "Qwen3-VL-4B-Instruct"
-    Qwen2.5-VL-3B-Instruct
+    # "Qwen3-VL-4B-qinstruct_ori_mix_qa_aq_iqa_8k_052525_v2"
+    "Qwen3-VL-4B-qinstruct_new_mix_qa_aq_iqa_8k_052525_v2"
 
 )
 
@@ -95,12 +95,12 @@ MODELS=(
 MODEL_NAME=${MODELS[$SLURM_ARRAY_TASK_ID]}
 # for MODEL_NAME in "${MODELS[@]}"; do
 # MODEL_NAME="Qwen3-VL-4B-qinstruct_new_qa_aq_iqa_8k"
-echo "Run evaluation for ${MODEL_NAME} on MMStar"
+echo "Run evaluation for ${MODEL_NAME} on MMMU_Pro"
 
-python run.py --data MMStar --model "${MODEL_NAME}" --mode infer
+python run.py --data MMMU_Pro_10c --model "${MODEL_NAME}" --mode infer
 
-# done
-cd /fs/nexus-scratch/yliang17/Research/VLM/VLM_toolset/
+# # done
+# cd /fs/nexus-scratch/yliang17/Research/VLM/VLM_toolset/
 
-echo "Run evaluation for ${MODEL_NAME} on MMStar"
-python3 eval/mmstar/call_gpt_batch.py --model_name=${MODEL_NAME} --model="gpt-5-nano"
+# echo "Run evaluation for ${MODEL_NAME} on MMStar"
+# python3 eval/mmstar/call_gpt_batch.py --model_name=${MODEL_NAME} --model="gpt-5-nano"

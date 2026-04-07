@@ -1,0 +1,11 @@
+# train_jid   model_name   eval_jid
+# 6433452 qwen3vl_4B_qinstruct_new_mix_qa_iqa_8k_067033_v2 
+# 6433453 qwen3vl_4B_qinstruct_ori_mix_qa_iqa_8k_067033_v2 
+# 6433383 qwen3vl_4B_qinstruct_new_mix_qa_aq_iqa_4k_052525_v2 
+# 6433384 qwen3vl_4B_qinstruct_new_mix_qa_aq_iqa_8k_052525_v2 
+# 6433385 qwen3vl_4B_qinstruct_ori_mix_qa_aq_iqa_8k_052525_v2 
+
+6441772 Qwen3-VL-4B-qinstruct_mme_mix_qa_aq_iqa_8k_052525_v2 6443012
+6441773 Qwen3-VL-4B-qinstruct_new_1round_mix_qa_aq_iqa_8k_052525 6443013
+6441774 Qwen3-VL-4B-qinstruct_new_mix_qa_aq_iqa_16k_052525_v2 6443014
+6441775 Qwen3-VL-4B-qinstruct_ori_mix_qa_aq_iqa_16k_052525_v2 6443015

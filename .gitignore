@@ -220,3 +220,7 @@ result*
 debug
 outputs
 scripts/data
+
+
+*.xlsx
+*.csv

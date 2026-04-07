@@ -1,15 +1,16 @@
 #!/bin/bash
 
-#SBATCH --array=0-0
-#SBATCH --job-name=other_eval
-#SBATCH --output=log/other_eval_%A_%a.log
-#SBATCH --error=log/other_eval_%A_%a.log
+#SBATCH --array=0-4
+#SBATCH --job-name=logistic_eval
+#SBATCH --output=log/logistic_eval_%A_%a.log
+#SBATCH --error=log/logistic_eval_%A_%a.log
 #SBATCH --time=48:00:00
 #SBATCH --account=scavenger 
 #SBATCH --partition=scavenger
 #SBATCH --gres=gpu:rtxa5000:1
 #SBATCH --cpus-per-task=6
 #SBATCH --mem=64G
+
 source /fs/nexus-scratch/yliang17/miniconda3/bin/activate qwen
 source /etc/profile.d/modules.sh
 module add cuda/12.4.1
@@ -18,10 +19,6 @@ export HF_HOME="/fs/nexus-projects/wilddiffusion/cache"
 export HF_DATASETS_CACHE="/fs/nexus-projects/wilddiffusion/cache"
 export HF_MODULES_CACHE="/fs/nexus-projects/wilddiffusion/cache"
 export TRANSFORMERS_CACHE="/fs/nexus-projects/wilddiffusion/cache"
-export VLM_EVAL_IMAGE_CACHE="/fs/nexus-projects/wilddiffusion/cache"
-export LMUData="/fs/nexus-scratch/yliang17/Research/cache"
-
-
 source /fs/nexus-scratch/yliang17/Research/VLA/config/key.conf
 
 
@@ -33,6 +30,7 @@ MODELS=(
     # "Qwen3-VL-4B-transfer_our_mix_qa_8k"
     # "Qwen3-VL-4B-transfer_our_qa_only_8k"
     # "Qwen3-VL-4B-transfer_our_mix_qa_aq_8k_shared"
+    # "Qwen3-VL-4B-transfer_our_mix_qa_iqa_8k_shared"
     # "Qwen3-VL-4B-transfer_our_mix_qa_iqa_8k_disjoint"
     # "Qwen3-VL-4B-transfer_our_mix_qa_aq_8k_disjoint"
 
@@ -41,24 +39,18 @@ MODELS=(
     # "Qwen3-VL-4B-transfer_ori_mix_qa_iqa_8k_shared" 
 
     # "Qwen3-VL-4B-qinstruct_new_mix_qa_iqa_8k_067033_v2"
+    # "Qwen3-VL-4B-transfer_our_mix_qa_iqa_8k_disjoint"
     # "Qwen3-VL-4B-Instruct"
 
-    # "Qwen3-VL-4B-transfer_our_v2_mix_qa_iqa_8k_shared"
-    # "Qwen3-VL-4B-Instruct"
-
-    # "Qwen3-VL-4B-transfer_our_v2_qa_full_8k"
-    # "Qwen3-VL-4B-transfer_our_v2_mix_qa_iqa_8k_disjoint"
-    # "Qwen3-VL-4B-transfer_ori_mix_qa_iqa_8k_shared" 
-    # "Qwen3-VL-4B-transfer_ori_mix_qa_iqa_8k_disjoint" 
-    # "Qwen2.5-VL-3B-Instruct"
-    "Qwen2.5-VL-3B-lora-sat_50k_e1_5e-5"
-    "Qwen2.5-VL-3B-lora-sat_50k_e3_5e-6"
+    "Qwen3-VL-4B-transfer_our_v2_mix_qa_aq_8k_disjoint"
+    "Qwen3-VL-4B-transfer_our_v2_mix_qa_aq_8k_shared"
+    "Qwen3-VL-4B-transfer_our_v2_mix_qa_iqa_8k_disjoint"
+    "Qwen3-VL-4B-transfer_our_v2_mix_qa_iqa_8k_shared"
+    "Qwen3-VL-4B-transfer_our_v2_qa_full_8k"
+    # "Qwen3-VL-4B-transfer_our_v2_qa_only_5360"
 )
 
 MODEL_NAME=${MODELS[$SLURM_ARRAY_TASK_ID]}
-echo "Run evaluation for ${MODEL_NAME} on MathVista"
+echo "Run evaluation for ${MODEL_NAME} on LogicVista"
 
-# python run.py --data MathVista DynaMath MMSIBench_wo_circular --model "${MODEL_NAME}"
-# python run.py --data MathVista_MINI --model "${MODEL_NAME}"
-python run.py --data CV-Bench-2D CV-Bench-3D --model "${MODEL_NAME}"
-# python run.py --data MMSIBench_wo_circular --model "${MODEL_NAME}"
+python run.py --data LogicVista --model "${MODEL_NAME}"
